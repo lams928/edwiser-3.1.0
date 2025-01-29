@@ -54,18 +54,18 @@ if ( ! class_exists( 'Eb_Admin_Settings' ) ) {
 				// include the settings page class.
 				include_once 'settings/class-eb-settings-page.php';
 
-				$settings[]     = include 'settings/class-eb-settings-general.php';
-				$settings[]     = include 'settings/class-eb-settings-connection.php';
+				// $settings[]     = include 'settings/class-eb-settings-general.php';
+				// $settings[]     = include 'settings/class-eb-settings-connection.php';
 				$settings[]     = include 'settings/class-eb-settings-synchronization.php';
-				$settings[]     = include 'settings/class-eb-settings-paypal.php';
-				$settings[]     = include 'settings/class-eb-settings-pro-featuers.php';
-				$settings[]     = include 'settings/class-eb-settings-dummy.php';
+				// $settings[]     = include 'settings/class-eb-settings-paypal.php';
+				// $settings[]     = include 'settings/class-eb-settings-pro-featuers.php';
+				// $settings[]     = include 'settings/class-eb-settings-dummy.php';
 				self::$settings = apply_filters( 'eb_get_settings_pages', $settings );
-				$settings[]     = include 'licensing/class-licensing-settings.php';
-				$settings[]     = include 'settings/class-eb-bridge-summary.php';
-				$settings[]     = include 'settings/class-eb-settings-shortcode-doc.php';
-				$settings[]     = include 'settings/class-eb-error-log.php';
-				$settings[]     = include 'settings/class-eb-settings-other-plugins.php';
+				// $settings[]     = include 'licensing/class-licensing-settings.php';
+				// $settings[]     = include 'settings/class-eb-bridge-summary.php';
+				// $settings[]     = include 'settings/class-eb-settings-shortcode-doc.php';
+				// $settings[]     = include 'settings/class-eb-error-log.php';
+				// $settings[]     = include 'settings/class-eb-settings-other-plugins.php';
 			}
 
 			return self::$settings;
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Eb_Admin_Settings' ) ) {
 			self::get_settings_pages();
 
 			// Get current tab/section.
-			$current_tab     = isset( $_REQUEST['tab'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['tab'] ) ) : 'general';
+			$current_tab     = isset( $_REQUEST['tab'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['tab'] ) ) : 'synchronization';
 			$current_section = isset( $_REQUEST['section'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['section'] ) ) : '';
 
 			// Save data only if nonce is verified.
