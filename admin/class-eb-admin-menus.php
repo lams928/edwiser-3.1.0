@@ -27,11 +27,24 @@ class Eb_Admin_Menus {
 	 */
 	public function __construct() {
 		// Add menus.
-		add_action( 'admin_menu', array( $this, 'admin_menu' ), 9 );
+		// add_action( 'admin_menu', array( $this, 'admin_menu' ), 9 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 10 );
-		add_action( 'admin_menu', array( $this, 'email_template' ), 10 );
-		add_action( 'admin_menu', array( $this, 'manage_enrollment_menu' ), 10 );
-		add_action( 'admin_footer', array( $this, 'open_help_menu_new_tab' ) ); // open help menu in new tab.
+		add_action( 'admin_menu', array( $this, 'remove_unwanted_menus' ), 999 );
+		// add_action( 'admin_menu', array( $this, 'email_template' ), 10 );
+		// add_action( 'admin_menu', array( $this, 'manage_enrollment_menu' ), 10 );
+		// add_action( 'admin_footer', array( $this, 'open_help_menu_new_tab' ) ); // open help menu in new tab.
+	}
+
+	public function remove_unwanted_menus() {
+		// Removemos Orders
+		remove_submenu_page('edit.php?post_type=eb_course', 'edit.php?post_type=eb_order');
+		
+		// Removemos User Enrollment 
+		// remove_submenu_page('edit.php?post_type=eb_course', 'mucp-manage-enrollment');
+		
+		// Removemos Email Templates
+		remove_submenu_page('edit.php?post_type=eb_course', 'eb-email-template');
+		remove_submenu_page('edit.php?post_type=eb_course', 'edit-tags.php?taxonomy=eb_course_cat&amp;post_type=eb_course');
 	}
 
 	/**
