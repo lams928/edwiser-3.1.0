@@ -538,6 +538,13 @@ class Eb_Course_Manager {
 
 		// add course id on moodle in corse meta on WP.
 		$eb_course_options = array( 'moodle_course_id' => $course_data->id );
+		/*minot27 course paid to 10$ by default */
+		$eb_course_options = array(
+			'moodle_course_id' => $course_data->id,
+			'course_price_type' => 'paid', // Establecer tipo de precio como 'paid' por defecto
+			'course_price' => 100, // Establecer precio predeterminado a $10
+			'course_closed' => 'no'
+		);
 		add_post_meta( $wp_course_id, 'moodle_course_id', $course_data->id );
 		add_post_meta( $wp_course_id, 'eb_course_options', $eb_course_options );
 
