@@ -111,7 +111,7 @@ class Eb_Post_Types {
 						'labels'            => array(
 							'name'               => __( 'Course', 'edwiser-bridge' ),
 							'singular_name'      => __( 'Courses', 'edwiser-bridge' ),
-							'menu_name'          => _x( 'Edwiser Bridge', 'Admin menu name', 'edwiser-bridge' ),
+							'menu_name'          => _x( 'Gestión de Cursos', 'Admin menu name', 'edwiser-bridge' ),
 							'all_items'          => __( 'Courses', 'edwiser-bridge' ),
 							'add_new'            => __( 'Add Course', 'edwiser-bridge' ),
 							'add_new_item'       => __( 'Add New Course', 'edwiser-bridge' ),

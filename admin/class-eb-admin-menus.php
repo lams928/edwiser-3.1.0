@@ -25,6 +25,7 @@ class Eb_Admin_Menus {
 	 *
 	 * @since 1.0.0
 	 */
+	/*minot27 hide ediser bridge menus*/
 	public function __construct() {
 		// Add menus.
 		// add_action( 'admin_menu', array( $this, 'admin_menu' ), 9 );
@@ -33,6 +34,26 @@ class Eb_Admin_Menus {
 		// add_action( 'admin_menu', array( $this, 'email_template' ), 10 );
 		// add_action( 'admin_menu', array( $this, 'manage_enrollment_menu' ), 10 );
 		// add_action( 'admin_footer', array( $this, 'open_help_menu_new_tab' ) ); // open help menu in new tab.
+		add_filter('gettext', array($this, 'change_menu_labels'), 20, 3);
+	}
+
+	public function change_menu_labels($translated_text, $text, $domain) {
+		switch ($translated_text) {
+			case 'Edwiser Bridge':
+				return 'Gestion de Cursos'; 
+				
+			case 'Courses':
+				return 'Cursos'; 
+				
+			case 'Settings':
+				if ($domain === 'edwiser-bridge') {
+					return 'Sincronización'; 
+				}
+				return $translated_text;
+				
+			default:
+				return $translated_text;
+		}
 	}
 
 	public function remove_unwanted_menus() {
@@ -70,8 +91,8 @@ class Eb_Admin_Menus {
 	public function settings_menu() {
 		add_submenu_page(
 			'edit.php?post_type=eb_course',
-			__( 'Settings', 'edwiser-bridge' ),
-			__( 'Settings', 'edwiser-bridge' ),
+			__( 'Gestión de Cursos', 'edwiser-bridge' ), // Cambia el título de la página
+			__( 'Sincronización', 'edwiser-bridge' ), // Cambia el nombre en el menú
 			'manage_options',
 			'eb-settings',
 			array( $this, 'settings_page' )

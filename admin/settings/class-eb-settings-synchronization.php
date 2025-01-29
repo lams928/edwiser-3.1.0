@@ -27,7 +27,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 		 */
 		public function __construct() {
 			$this->_id   = 'synchronization';
-			$this->label = __( 'Synchronization', 'edwiser-bridge' );
+			$this->label = __( 'Sincronización', 'edwiser-bridge' );
 
 			add_filter( 'eb_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
 			add_action( 'eb_settings_' . $this->_id, array( $this, 'output' ) );
@@ -44,8 +44,8 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 		 */
 		public function get_sections() {
 			$sections = array(
-				''          => __( 'Courses', 'edwiser-bridge' ),
-				'user_data' => __( 'Users', 'edwiser-bridge' ),
+				''          => __( 'Cursos', 'edwiser-bridge' ),
+				'user_data' => __( 'Usuarios', 'edwiser-bridge' ),
 			);
 
 			$new_sections = apply_filters( 'eb_get_sections_' . $this->_id, $sections );
@@ -103,13 +103,13 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 					'eb_user_synchronization_settings',
 					array(
 						array(
-							'title' => __( 'Synchronize User Data', 'edwiser-bridge' ),
+							'title' => __( 'Sincronizar Datos de Usuario', 'edwiser-bridge' ),
 							'type'  => 'title',
 							'id'    => 'user_synchronization_options',
 						),
 						array(
-							'title'           => __( 'Synchronization Options', 'edwiser-bridge' ),
-							'desc'            => __( 'Update user\'s course enrollment status', 'edwiser-bridge' ),
+							'title'           => __( 'Opciones de Sincronización', 'edwiser-bridge' ),
+							'desc'            => __( 'Actualizar estado de inscripción del usuario', 'edwiser-bridge' ),
 							'id'              => 'eb_synchronize_user_courses',
 							'default'         => 'no',
 							'type'            => 'checkbox',
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 							'autoload'        => false,
 						),
 						array(
-							'desc'            => __( 'Link user\'s account to moodle', 'edwiser-bridge' ),
+							'desc'            => __( 'Vincular cuenta de usuario a Moodle', 'edwiser-bridge' ),
 							'id'              => 'eb_link_users_to_moodle',
 							'default'         => 'no',
 							'type'            => 'checkbox',
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 							'title' => '',
 							'type'  => 'title',
 							'id'    => 'user_sync_email_notice',
-							'desc'  => '<div class="user_sync_email_notice">' . __( 'Note: Performing user synchronization will email all the users with their login credentials. To disable the same you may deactivate', 'edwiser-bridge' ) . '<b>' . __( '"Link WP user account to moodle and Create new moodle account"', 'edwiser-bridge' ) . '</b>' . __( 'from Manage email templates.', 'edwiser-bridge' ) . '</div>',
+							'desc'  => '<div class="user_sync_email_notice">' . __( 'Nota: Al realizar la sincronización de usuarios se enviará un correo a todos los usuarios con sus credenciales de acceso de la plataforma.', 'edwiser-bridge' ) . '<b>' . __( '', 'edwiser-bridge' ) . '</b>' . __( '', 'edwiser-bridge' ) . '</div>',
 						),
 						array(
 							'type' => 'sectionend',
@@ -158,13 +158,13 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 					'eb_course_synchronization_settings',
 					array(
 						array(
-							'title' => __( 'Synchronize Courses', 'edwiser-bridge' ),
+							'title' => __( 'Sincronizar Cursos', 'edwiser-bridge' ),
 							'type'  => 'title',
 							'id'    => 'course_synchronization_options',
 						),
 						array(
-							'title'           => __( 'Synchronization Options', 'edwiser-bridge' ),
-							'desc'            => __( 'Synchronize course categories', 'edwiser-bridge' ),
+							'title' => __( 'Opciones de Sincronización', 'edwiser-bridge' ),
+							'desc'  => __( 'Sincronizar categorías de cursos', 'edwiser-bridge' ),
 							'id'              => 'eb_synchronize_categories',
 							'default'         => 'yes',
 							'type'            => 'checkbox',
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 							'autoload'        => false,
 						),
 						array(
-							'desc'            => __( 'Update previously synchronized courses', 'edwiser-bridge' ),
+							'desc'            => __( 'Actualizar cursos previamente sincronizados', 'edwiser-bridge' ),
 							'id'              => 'eb_synchronize_previous',
 							'default'         => 'yes',
 							'type'            => 'checkbox',
@@ -183,7 +183,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 						),
 
 						array(
-							'desc'            => __( 'Keep synchronized courses as draft. (Courses in the draft will not reflect on the learners "My Courses" page!)', 'edwiser-bridge' ),
+							'desc'            => __( 'Mantener cursos sincronizados como borrador. (¡Los cursos en borrador no se reflejarán en la página "Mis Cursos" de los alumnos!)', 'edwiser-bridge' ),
 							'id'              => 'eb_synchronize_draft',
 							'default'         => 'yes',
 							'type'            => 'checkbox',
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 							'autoload'        => false,
 						),
 						array(
-							'desc'            => __( 'Sync Course images from moodle', 'edwiser-bridge' ),
+							'desc'            => __( 'Sincronizar imágenes de cursos de Moodle', 'edwiser-bridge' ),
 							'id'              => 'eb_synchronize_images',
 							'default'         => 'yes',
 							'type'            => 'checkbox',
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 							'title' => '',
 							'type'  => 'title',
 							'id'    => 'course_draft_notice',
-							'desc'  => '<div class="user_sync_email_notice">' . sprintf( __( 'Pre-Requisite Alert: Before you can synchronize course images from Moodle, ensure that you have enabled the "Can Download File" option on your Moodle site. To learn how to do this, please click the %s provided.', 'edwiser-bridge' ), '<a href="https://edwiser.helpscoutdocs.com/article/559-how-to-enable-can-download-file-in-the-active-external-web-service">' . __( 'link', 'edwiser-bridge' ) . '</a>' ) . '</div>', // @codingStandardsIgnoreLine
+							// 'desc'  => '<div class="user_sync_email_notice">' . sprintf( __( 'Pre-Requisite Alert: Before you can synchronize course images from Moodle, ensure that you have enabled the "Can Download File" option on your Moodle site. To learn how to do this, please click the %s provided.', 'edwiser-bridge' ), '<a href="https://edwiser.helpscoutdocs.com/article/559-how-to-enable-can-download-file-in-the-active-external-web-service">' . __( 'link', 'edwiser-bridge' ) . '</a>' ) . '</div>', // @codingStandardsIgnoreLine
 						),
 						array(
 							'type' => 'sectionend',
