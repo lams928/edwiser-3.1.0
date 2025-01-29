@@ -132,7 +132,7 @@ if ( ! class_exists( 'Eb_Settings_Synchronization' ) ) {
 							'id'    => 'user_sync_email_notice',
 							'desc'  => '<div class="user_sync_email_notice">' . __( 'Nota: Al realizar la sincronización de usuarios se enviará un correo a todos los usuarios con sus credenciales de acceso de la plataforma.', 'edwiser-bridge' ) . '<b>' . __( '', 'edwiser-bridge' ) . '</b>' . __( '', 'edwiser-bridge' ) . '</div>',
 						),
-						array(
+						array( 
 							'type' => 'sectionend',
 							'id'   => 'user_sync_email_notice',
 						),
